@@ -1,0 +1,43 @@
+.App {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+svg {
+  background: #eee;
+  /* margin-bottom: 25px; */
+}
+
+.line-chart {
+  overflow: visible;
+}
+
+.bar-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-grp {
+  margin-top: 25px;
+}
+
+button {
+  margin: 5px;
+}
+
+.container {
+  height: 500px;
+}
