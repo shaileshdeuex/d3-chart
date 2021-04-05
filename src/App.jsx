@@ -1,11 +1,8 @@
-import React from "react";
-
 import BarChart from "./BarChart";
 import BarChartPractice from "./BarChartPractice";
+import BarChartResp from "./BarChartResp";
 import CircleChart from "./Circle";
 import LineChart from "./LineChart";
-
-import BarChartResponsive from "./BarChartResponsive";
 
 // random number generater
 export const randNum = () => Math.ceil(Math.random() * 100);
@@ -21,8 +18,6 @@ export const randArray = () => {
 };
 
 const App = () => {
-  const [data, setData] = React.useState(randArray());
-
   return (
     <div className="App">
       <div className="chart-container">
@@ -32,16 +27,7 @@ const App = () => {
         <BarChartPractice />
       </div>
 
-      <BarChartResponsive data={data} />
-      <div className="btn-grp">
-        <button onClick={() => setData(data.map((d) => d + 5))}>+5</button>
-        <button onClick={() => setData(data.filter((d) => d > 50))}>
-          filter
-        </button>
-        <button onClick={() => setData(data.map((d) => d - 5))}>-5</button>
-        <button onClick={() => setData([...data, randNum()])}>Add</button>
-        <button onClick={() => setData(randArray())}>Re-set</button>
-      </div>
+      <BarChartResp />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import "./styles.css";
 import React from "react";
 import { select } from "d3";
+import Button from "./Button";
 
 export default function CircleChart() {
   const svgRef = React.useRef();
@@ -20,17 +21,21 @@ export default function CircleChart() {
     <div>
       <h1>Circle</h1>
       <svg ref={svgRef}></svg>
-      <br />
-      <br />
-      <button onClick={() => setData(data.map((d) => d + 5))}>
-        Update with +5
-      </button>
-      <button onClick={() => setData(data.filter((d) => d > 50))}>
-        filter data
-      </button>
-      <button onClick={() => setData(data.map((d) => d - 5))}>
-        Update with -5
-      </button>
+
+      <div className="btn-grp">
+        <Button
+          handleClick={() => setData(data.map((d) => d + 5))}
+          title="+5"
+        />
+        <Button
+          handleClick={() => setData(data.filter((d) => d > 50))}
+          title="filter"
+        />
+        <Button
+          handleClick={() => setData(data.map((d) => d - 5))}
+          title="-5"
+        />
+      </div>
     </div>
   );
 }

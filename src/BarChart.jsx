@@ -2,6 +2,7 @@ import "./styles.css";
 import React from "react";
 import { axisBottom, axisLeft, scaleBand, scaleLinear, select } from "d3";
 import { randArray, randNum } from "./App";
+import Button from "./Button";
 
 export default function BarChart() {
   const svgRef = React.useRef();
@@ -67,15 +68,22 @@ export default function BarChart() {
         <g className="x-axis" />
         <g className="y-axis" />
       </svg>
-      <br />
-      <br />
-      <button onClick={() => setData(data.map((d) => d + 5))}>+5</button>
-      <button onClick={() => setData(data.filter((d) => d > 50))}>
-        filter
-      </button>
-      <button onClick={() => setData(data.map((d) => d - 5))}>-5</button>
-      <button onClick={() => setData([...data, randNum()])}>Add</button>
-      <button onClick={() => setData(randArray())}>Re-set</button>
+      <div className="btn-grp">
+        <Button
+          handleClick={() => setData(data.map((d) => d + 5))}
+          title="+5"
+        />
+        <Button
+          handleClick={() => setData(data.filter((d) => d > 50))}
+          title="filter"
+        />
+        <Button
+          handleClick={() => setData(data.map((d) => d - 5))}
+          title="-5"
+        />
+        <Button handleClick={() => setData([...data, randNum()])} title="Add" />
+        <Button handleClick={() => setData(randArray())} title="Re-set" />
+      </div>
     </div>
   );
 }
